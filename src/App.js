@@ -8,7 +8,7 @@ class App extends React.Component {
   }
 }
 
-class From extends React.Component {
+class Form extends React.Component {
   render() {
     return (
       <form>
