@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 class App extends React.Component {
   render() {
@@ -9,11 +9,29 @@ class App extends React.Component {
 }
 
 class Form extends React.Component {
-  state = { rfc_emisor: '' }
+  state = { rfc_emisor: '' };
+
+
+
+  handleSubmit = async (event) => {
+    const settings = {
+      method: 'POST',
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      }
+    };
+
+    event.preventDefault();
+    const res = async function submitRequest() {
+      const fetchResponse = await fetch('api/message', settings);
+      const data = await fetchResponse.json();
+    }
+  }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <span className='formtext'><Form /></span>
         <input
         type='text'
@@ -27,3 +45,5 @@ class Form extends React.Component {
     )
   }
 }
+
+export default App;
