@@ -3,13 +3,14 @@ import React from 'react';
 class App extends React.Component {
   render() {
     return (
-      <Form />
+      <RequestForm />
     );
   }
 }
 
-class Form extends React.Component {
-  state = { rfc_emisor: '' };
+class RequestForm extends React.Component {
+  state = { rfc_emisor: '',
+            email_emisor: '' };
   data = {  rfc_emisor: "NAOO890331S25",
             email_emisor: "narvaez.oscar@live.com",
             rfc_receptor: "ABCD12542223S2",
@@ -34,14 +35,21 @@ class Form extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <span className='formtext'><Form /></span>
+        <span className='formtext'></span>
         <input
         type='text'
         value={this.state.rfc_emisor}
         onChange={event => this.setState({rfc_emisor : event.target.value})}
         placeholder='RFC Emisor'
         required
-        ></input>
+        />
+        <input
+        type='text'
+        value={this.state.email_emisor}
+        onChange={event => this.setState({email_emisor : event.target.value})}
+        placeholder='Email Emisor'
+        required
+        />
         <button>Enviar</button>
       </form>
     )
