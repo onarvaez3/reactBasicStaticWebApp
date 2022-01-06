@@ -10,6 +10,11 @@ class App extends React.Component {
 
 class Form extends React.Component {
   state = { rfc_emisor: '' };
+  data = {  rfc_emisor: "NAOO890331S25",
+            email_emisor: "narvaez.oscar@live.com",
+            rfc_receptor: "ABCD12542223S2",
+            email_receptor: "narvaez.oscar@outlook.com"
+  }
 
   handleSubmit = async (event) => {
     const settings = {
@@ -17,16 +22,13 @@ class Form extends React.Component {
       headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-      }
+      },
+      body: JSON.stringify(this.data)
     };
 
     event.preventDefault();
-    submitRequest = () => {
-      return async function submitRequest() {
-        const fetchResponse = await fetch('api/message', settings);
-        await fetchResponse.json();
-      };
-    }
+    const fetchResponse = await fetch('api/message', settings);
+    await fetchResponse.json();
   }
 
   render() {
