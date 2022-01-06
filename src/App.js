@@ -11,8 +11,6 @@ class App extends React.Component {
 class Form extends React.Component {
   state = { rfc_emisor: '' };
 
-
-
   handleSubmit = async (event) => {
     const settings = {
       method: 'POST',
@@ -23,7 +21,7 @@ class Form extends React.Component {
     };
 
     event.preventDefault();
-    () => {
+    submitRequest = () => {
       return async function submitRequest() {
         const fetchResponse = await fetch('api/message', settings);
         await fetchResponse.json();
