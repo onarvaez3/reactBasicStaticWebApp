@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 class App extends React.Component {
   render() {
@@ -23,9 +23,11 @@ class Form extends React.Component {
     };
 
     event.preventDefault();
-    const res = async function submitRequest() {
-      const fetchResponse = await fetch('api/message', settings);
-      const data = await fetchResponse.json();
+    () => {
+      return async function submitRequest() {
+        const fetchResponse = await fetch('api/message', settings);
+        await fetchResponse.json();
+      };
     }
   }
 
