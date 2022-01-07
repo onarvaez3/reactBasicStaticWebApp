@@ -1,4 +1,5 @@
 import React from 'react';
+import {VStack, Heading, Box} from 'native-base';
 
 class App extends React.Component {
   render() {
@@ -140,6 +141,13 @@ class RequestForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <VStack safeArea flex={1}>
+          <Box p={3}>
+            <Heading size={'lg'} textAlign={'center'}>
+              Solicitud de Factura
+            </Heading>
+          </Box>
+        </VStack>
         <span className='formtext'>Datos del Emisor</span>
         <label>
           RFC
