@@ -28,7 +28,7 @@ class RequestForm extends React.Component {
     };
 
     event.preventDefault();
-    const fetchResponse = await fetch('api/message', settings);
+    const fetchResponse = await fetch('api/func-http-process-request', settings);
     await fetchResponse.json();
   }
 
